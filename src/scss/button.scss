@@ -1,0 +1,175 @@
+/**
+ * == Button ==
+ */
+
+//
+// Dependences: {
+//     ./maxins/button.scss: button-variant(),button-resize(),
+// }
+@import './mixins/button';
+%button-reset {
+    // reset
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    color: var(--theme-contrasted);
+    background-color: var(--theme);
+    background-image: none;
+    border: 1px solid var(--theme-darken);
+    white-space: nowrap;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn,
+.button {
+    @extend %button-reset;
+    &,
+    &:active,
+    &.active {
+        &:focus,
+        &.focus {
+            color: var(--theme-contrasted);
+            outline: .5rem auto -webkit-focus-ring-color;
+            outline-offset: -.1rem;
+        }
+    }
+    &:hover {
+        color: var(--theme-contrasted);
+        outline: 0;
+        background-color: var(--theme-lighten);
+    }
+    &:focus,
+    &.focus {
+        color: var(--theme-contrasted);
+        outline: 0;
+        box-shadow: 0 0 0 .1rem var(--theme-darken);
+    }
+    &:active,
+    &.active {
+        color: var(--theme-contrasted);
+        outline: 0;
+        background-image: none;
+        box-shadow: 0 0 0 .1rem var(--theme-darken);
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        cursor: not-allowed;
+        @include opacity(.65);
+        box-shadow: none;
+    }
+    // color
+    @each $key,
+    $color in $colors {
+        &-#{$key} {
+            // @extend %button-reset;
+            @include button-variant($color);
+        }
+    }
+    // color plains
+    // @each $key,
+    // $color in $colors {
+    //     &-#{$key}-plain {
+    //         // @extend %button-reset;
+    //         @include button-plain($color);
+    //     }
+    // }
+    // size
+    &-xl,
+    &-xl>#{&} {
+        @include button-resize(.625rem 1.25rem, 1.5rem, 1.5, .3rem)
+    }
+    &-lg,
+    &-lg>#{&} {
+        @include button-resize(.5rem 1rem, 1.25rem, 1.5, .3rem)
+    }
+    &-md,
+    &-md>#{&} {
+        @include button-resize(.375rem .75rem, 1rem, 1.5, .2rem);
+    }
+    &-sm,
+    &-sm>#{&} {
+        @include button-resize(.25rem .5rem, .75rem, 1.5, .2rem);
+    }
+    &-xs,
+    &-xs>#{&} {
+        @include button-resize(.125rem .25rem, .5rem, 1.5, .1rem);
+    }
+    // link
+    &-link {
+        color: $color-theme;
+        font-weight: normal;
+        border-radius: 0;
+        &,
+        &:active,
+        &.active,
+        &[disabled],
+        fieldset[disabled] & {
+            background-color: transparent;
+            box-shadow: none;
+        }
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: transparent;
+        }
+        &:hover,
+        &:focus {
+            color: $color-theme;
+            text-decoration: underline;
+            background-color: transparent;
+        }
+        &[disabled],
+        fieldset[disabled] & {
+            &:hover,
+            &:focus {
+                color: $color-grey;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+a.btn.disabled,
+a.button.disabled,
+fieldset[disabled] a.btn,
+fieldset[disabled] a.button {
+    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+}
+
+// Vertically space out multiple block buttons
+// .btn-block+.btn-block,
+// .button-block+.button-block {
+//     margin-top: 5px;
+// }
+.btn-block,
+.button-block {
+    display: block;
+    width: 100%;
+    // Vertically space out multiple block buttons
+    +.btn-block,
+    +.button-block {
+        margin-top: .25rem;
+    }
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    &.btn-block,
+    &.button-block {
+        width: 100%;
+    }
+}

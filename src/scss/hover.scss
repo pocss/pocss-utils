@@ -1,0 +1,21 @@
+/**
+ * == Hover ==
+ */
+
+//
+// Dependences: {
+//     ./maxins/variables.scss: colors,
+// }
+.hover {
+    &:hover {
+        background-color: var(--theme);
+        color: var(--theme-contrasted);
+    }
+    @each $key,
+    $color in $colors {
+        &-#{$key}:hover {
+            background-color: $color;
+            color: contrast-color($color) !important;
+        }
+    }
+}

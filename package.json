@@ -1,0 +1,37 @@
+{
+    "name": "css3-utilities",
+    "version": "1.1.9",
+    "description": "A few common CSS3 tool classes are encapsulated in this project.",
+    "main": "index.js",
+    "scripts": {
+        "test": "n"
+    },
+    "repository": {
+        "type": "git",
+        "url": "cjiali/css3-utilities"
+    },
+    "keywords": [
+        "css",
+        "css3",
+        "utilities"
+    ],
+    "author": "cjiali",
+    "license": "ISC",
+    "devDependencies": {
+        "del": "^5.1.0",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-make-css-url-version": "^0.0.13",
+        "gulp-minify-css": "^1.2.4",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-uglifycss": "^1.1.0",
+        "gulp-util": "^3.0.8"
+    },
+    "dependencies": {},
+    "files": [
+        "dist/style.min.css"
+    ]
+}

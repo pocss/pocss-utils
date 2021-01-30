@@ -1,0 +1,17 @@
+/**
+ * == Display ==
+ */
+
+//
+// Dependences: {
+// }
+.display {
+    display  : flex;
+    $displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
+
+    @each $display in $displays {
+        &-#{$display} {
+            display: $display !important;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+//
+// Background Mixins
+//
+// Dependences: {
+//      ./tools.scss: directions,space-keys,
+// }
+@mixin spacing-make($property) {
+    @each $key,
+    $space in $spaces {
+        $suffix: -#{$key};
+        @if $key=='primary' {
+            $suffix: "";
+            &-auto {
+                #{$property}: auto !important;
+            }
+            &-y-auto,
+            &-t-auto,
+            &-top-auto {
+                #{$property}-top: auto !important;
+            }
+            &-x-auto,
+            &-r-auto,
+            &-right-auto {
+                #{$property}-right: auto !important;
+            }
+            &-y-auto,
+            &-b-auto,
+            &-bottom-auto {
+                #{$property}-bottom: auto !important;
+            }
+            &-x-auto,
+            &-l-auto,
+            &-left-auto {
+                #{$property}-left: auto !important;
+            }
+        }
+        &#{$suffix} {
+            #{$property}: $space !important;
+        }
+        &-y#{$suffix},
+        &-t#{$suffix},
+        &-top#{$suffix} {
+            #{$property}-top: $space !important;
+        }
+        &-x#{$suffix},
+        &-r#{$suffix},
+        &-right#{$suffix} {
+            #{$property}-right: $space !important;
+        }
+        &-y#{$suffix},
+        &-b#{$suffix},
+        &-bottom#{$suffix} {
+            #{$property}-bottom: $space !important;
+        }
+        &-x#{$suffix},
+        &-l#{$suffix},
+        &-left#{$suffix} {
+            #{$property}-left: $space !important;
+        }
+    }
+}

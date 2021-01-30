@@ -1,0 +1,68 @@
+/**
+ * == Page ==
+ */
+
+//
+// Dependences: {
+// }
+.page {
+    & {
+        min-width: 100vw;
+        min-height: 100vh;
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        font-family: -apple-system-font, Consolas, Helvetica Neue, Helvetica, sans-serif;
+        background-color: rgba(240, 240, 240, 1);
+    }
+    &:before {
+        top: 0;
+    }
+    &:after,
+    &:before {
+        content: " ";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 0;
+        color: var(--white);
+    }
+    &:after {
+        bottom: 0;
+    }
+
+    &>#{&}-head,
+    &>#{&}-body,
+    &>#{&}-foot {
+        box-sizing: border-box;
+        position   : relative;
+    }
+
+    &-head {
+        top: 0;
+        flex-shrink: 0;
+    }
+    &-body {
+        z-index: 0;
+        flex: 1;
+        flex-basis: auto;
+        overflow: auto;
+    }
+    &-foot {
+        bottom: 0px;
+        flex-shrink: 0;
+    }
+    #{&}-title {
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    #{&}-desc {
+        margin-top: .25rem;
+        color: #888;
+        text-align: center;
+        font-size: .75rem;
+    }
+}

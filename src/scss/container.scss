@@ -1,0 +1,40 @@
+/**
+ * == Container ==
+ */
+
+//
+// Dependences: {
+// }
+.container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-basis: auto;
+    box-sizing: border-box;
+    min-width: 0;
+    &--vertical {
+        flex-direction: column
+    }
+    >#{&}-aside,
+    >#{&}-head,
+    >#{&}-body,
+    >#{&}-foot{
+        box-sizing: border-box;
+        position: relative;
+    }
+    >#{&}-aside {
+        overflow: auto;
+        flex-shrink: 0;
+    }
+    >#{&}-head {
+        flex-shrink: 0;
+    }
+    >#{&}-body {
+        flex: 1;
+        flex-basis: auto;
+        overflow: auto;
+    }
+    >#{&}-foot {
+        flex-shrink: 0;
+    }
+}

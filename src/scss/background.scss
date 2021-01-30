@@ -1,0 +1,19 @@
+/**
+ * == Background ==
+ */
+
+//
+// Dependences: {
+// }
+.bg,
+.background {
+    // @include background($color-theme, true);
+    background-color: var(--theme);
+    color: var(--theme-contrasted);
+    @each $key,
+    $color in $colors {
+        &-#{$key} {
+            @include background($color, true);
+        }
+    }
+}
